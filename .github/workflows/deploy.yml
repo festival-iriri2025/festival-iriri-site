@@ -19,12 +19,8 @@ jobs:
       with:
         node-version: '20'
         cache: 'pnpm'
+        cache-dependency-path: 'pnpm-lock.yaml'
         
-    - name: Install pnpm
-      run: | 
-        npm install -g pnpm
-        echo "$(pnpm store path)" >> $GITHUB_PATH
-      
     - name: Install dependencies
       run: pnpm install --legacy-peer-deps
       
