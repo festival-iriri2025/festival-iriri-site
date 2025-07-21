@@ -21,12 +21,12 @@ jobs:
         cache: 'pnpm'
         cache-dependency-path: 'pnpm-lock.yaml'
         
-    - name: Install pnpm
-      run: npm install -g pnpm
-      
-    - name: Add pnpm to PATH
-      run: echo "$(npm root -g)/.bin" >> $GITHUB_PATH
-      
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: true
+
     - name: Install dependencies
       run: pnpm install --legacy-peer-deps
       
